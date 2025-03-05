@@ -8,7 +8,7 @@ body {
     font-family: sans-serif; /*Arial, sans-serif;*/
     font-size: 14px;
     background-color: #f4f4f4;
-    color: #727272;
+    color: #333;
     margin: 0;
     padding: 20px;
   }
@@ -17,14 +17,92 @@ If you have a header, you might want to give it a background color,
 change its text color, and maybe add some padding.
 */
 
-/*
 header {
-    background-color: #333;
-    color: #fff;
-    padding: 20px 0;
     text-align: center;
-  }
-*/
+    background-color: #cbcbcb;
+    padding: 20px;
+    margin-bottom: 20px;
+    position: relative; /* Allows positioning of the image */
+}
+
+header img {
+    position: absolute;
+    top: -20px;
+    right: 10px;
+    height: 200px;
+    margin: 0;
+}
+
+.keynote-speakers, .organizers {
+    background-color: #d9e8fb;
+    padding: 10px;
+    margin-bottom: 40px;
+    border-radius: 10px;
+    text-align: center;
+    height: 320px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.speakers-grid, .organizers-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: center;
+}
+
+.speaker, .organizer {
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+    width: 200px;
+    box-sizing: border-box;
+}
+
+.speaker img, .organizer img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-size: 1em;
+    margin: 10px 0;
+}
+
+p {
+    margin: 5px 0;
+}
+
+.program {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+@media (max-width: 600px) {
+    .speakers-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
 /*
 Images
 */
@@ -133,4 +211,25 @@ Classes
 .titleh2 {
     font-weight: bold;
     color: #393939;
+}
+
+.organizers {
+    background-color: #f0f8ff;
+    padding: 10px;
+    margin-bottom: 20px;
+    height: 320px;
+}
+
+.organizer {
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+    width: 200px;
+}
+
+.organizer img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
 }
