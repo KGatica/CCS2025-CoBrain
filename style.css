@@ -162,16 +162,16 @@ header {
 
 .header-content {
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    flex-direction: column;
     position: relative;
     z-index: 2; /* Make sure content is above particles */
 }
 
 .header-text {
-    flex: 1;
-    text-align: center;
+    text-align: left;
+    max-width: 60%;
 }
 
 .header-text h1 {

@@ -585,9 +585,9 @@
                 const canvasHeight = pJS.canvas.h;
                 
                 // Position brain on the right side of the header
-                const centerX = canvasWidth * 0.75; // Move to the right (75% of width)
-                const centerY = canvasHeight * 0.5; // Center vertically
                 const scale = Math.min(canvasWidth * 0.4, canvasHeight * 0.7); // Adjust scale to fit right side
+                const centerX = canvasWidth * 0.75; // Adjust position to the right
+                const centerY = canvasHeight * 0.5; // Center vertically
                 
                 // Store original positions and velocities for all particles
                 for (let i = 0; i < particles.array.length; i++) {
