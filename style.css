@@ -685,3 +685,11 @@ footer::after {
         max-width: 450px;
     }
 }
+
+/* Add this CSS to your style.css file */
+
+/* Apply to all sections with an ID */
+section[id] {
+    padding-top: 60px; /* Adjust this value as needed */
+    margin-top: -60px; /* Same value as padding-top */
+}
