@@ -33,6 +33,7 @@
     </nav>
 
     <header>
+        <div id="particles-js"></div>
         <div class="container">
             <div class="header-content">
                 <div class="header-text">
@@ -42,9 +43,9 @@
                     <p class="event-details">September 2025 (Date TBD) • Siena, Italy</p>
                     <a href="https://ccs25.cssociety.org/" class="btn-register">Register via CCS 2025</a>
                 </div>
-                <div class="header-image">
-                    <img src="cobrain4.png" alt="Information in the brain" title="Information in the brain">
-                </div>
+                <!-- <div class="header-image">
+                    <img src="brainco2.png" alt="Information in the brain" title="Information in the brain">
+                </div> -->
             </div>
         </div>
     </header>
@@ -313,6 +314,495 @@
         </div>
     </footer>
 
-    <!-- No tabs needed for one-day event -->
+    <!-- Load particles.js from CDN with specific version -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
+    <!-- Initialize particles.js with brain-like appearance -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Basic particles.js configuration for a brain-like network
+            particlesJS("particles-js", {
+                "particles": {
+                    "number": {
+                        "value": 300,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": ["#00bfff", "#87ceeb", "#1e90ff", "#00ffff"]
+                    },
+                    "shape": {
+                        "type": "circle"
+                    },
+                    "opacity": {
+                        "value": 0.6,
+                        "random": true,
+                        "anim": {
+                            "enable": true,
+                            "speed": 0.8,
+                            "opacity_min": 0.5,
+                            "sync": false
+                        }
+                    },
+                    "size": {
+                        "value": 4,
+                        "random": true
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 100,
+                        "color": "#4682b4",
+                        "opacity": 0.4,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 1.5,
+                        "direction": "none",
+                        "random": true,
+                        "straight": false,
+                        "out_mode": "bounce",
+                        "attract": {
+                            "enable": true,
+                            "rotateX": 600,
+                            "rotateY": 1200
+                        }
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "grab"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                        },
+                        "resize": true
+                    },
+                    "modes": {
+                        "grab": {
+                            "distance": 180,
+                            "line_linked": {
+                                "opacity": 1
+                            }
+                        },
+                        "push": {
+                            "particles_nb": 4
+                        }
+                    }
+                }
+            });
+            
+            // Custom gold highlight effect
+            setTimeout(function() {
+                const pJSCanvas = document.querySelector('#particles-js canvas');
+                if (pJSCanvas) {
+                    // Store the original line color
+                    const originalLineColor = '#4682b4'; // Steel blue
+                    const goldHighlightColor = '#FFD700'; // Gold
+                    
+                    // Add mouse move listener to the particles canvas
+                    pJSCanvas.addEventListener('mousemove', function(event) {
+                        // Get particle container instance
+                        if (window.pJSDom && window.pJSDom[0] && window.pJSDom[0].pJS) {
+                            const pJS = window.pJSDom[0].pJS;
+                            
+                            if (pJS.interactivity.status === 'mousemove') {
+                                // Change the line linked color to gold for connections near the mouse
+                                if (pJS.interactivity.mouse.position_x && pJS.interactivity.mouse.position_y) {
+                                    for (let i = 0; i < pJS.particles.array.length; i++) {
+                                        const particle = pJS.particles.array[i];
+                                        const dx = pJS.interactivity.mouse.position_x - particle.x;
+                                        const dy = pJS.interactivity.mouse.position_y - particle.y;
+                                        const dist = Math.sqrt(dx * dx + dy * dy);
+                                        
+                                        if (dist <= 180) {
+                                            particle.color.rgb = hexToRgb(goldHighlightColor);
+                                        } else {
+                                            particle.color.rgb = hexToRgb(particle.color.value);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    });
+                    
+                    // Helper function to convert hex to RGB
+                    function hexToRgb(hex) {
+                        if (typeof hex === 'object') return hex;
+                        
+                        const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+                        hex = hex.replace(shorthandRegex, function(m, r, g, b) {
+                            return r + r + g + g + b + b;
+                        });
+
+                        const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+                        return result ? {
+                            r: parseInt(result[1], 16),
+                            g: parseInt(result[2], 16),
+                            b: parseInt(result[3], 16)
+                        } : { r: 0, g: 0, b: 0 };
+                    }
+                }
+            }, 500); // Small delay to ensure particles.js is fully initialized
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        // First, adjust the header layout - move text to left
+        const headerText = document.querySelector('.header-text');
+        if (headerText) {
+            headerText.style.textAlign = 'left';
+            headerText.style.maxWidth = '60%';
+        }
+        
+        const headerContent = document.querySelector('.header-content');
+        if (headerContent) {
+            headerContent.style.flexDirection = 'row';
+            headerContent.style.justifyContent = 'space-between';
+            headerContent.style.alignItems = 'center';
+        }
+        
+        // Wait for particles.js to initialize
+        setTimeout(function() {
+            if (!window.pJSDom || !window.pJSDom[0] || !window.pJSDom[0].pJS) return;
+            
+            const pJS = window.pJSDom[0].pJS;
+            const particles = pJS.particles;
+            
+            // Exact brain coordinates you provided
+            const rawCoordinates = [
+                {x: 303, y: 11},
+                {x: 279, y: 20},
+                {x: 241, y: 19},
+                {x: 204, y: 28},
+                {x: 166, y: 45},
+                {x: 128, y: 64},
+                {x: 96, y: 88},
+                {x: 70, y: 130},
+                {x: 54, y: 169},
+                {x: 53, y: 223},
+                {x: 73, y: 254},
+                {x: 109, y: 284},
+                {x: 146, y: 284},
+                {x: 185, y: 284},
+                {x: 198, y: 310},
+                {x: 219, y: 338},
+                {x: 249, y: 343},
+                {x: 291, y: 347},
+                {x: 333, y: 338},
+                {x: 360, y: 369},
+                {x: 379, y: 403},
+                {x: 390, y: 441},
+                {x: 411, y: 447},
+                {x: 421, y: 431},
+                {x: 433, y: 403},
+                {x: 487, y: 400},
+                {x: 523, y: 373},
+                {x: 544, y: 341},
+                {x: 565, y: 327},
+                {x: 580, y: 296},
+                {x: 588, y: 262},
+                {x: 583, y: 215},
+                {x: 578, y: 173},
+                {x: 560, y: 152},
+                {x: 539, y: 112},
+                {x: 516, y: 95},
+                {x: 496, y: 73},
+                {x: 470, y: 52},
+                {x: 437, y: 40},
+                {x: 402, y: 30},
+                {x: 369, y: 18},
+                {x: 340, y: 12}
+            ];
+            
+            // Find the boundaries of the original coordinates
+            let minX = Number.MAX_VALUE;
+            let minY = Number.MAX_VALUE;
+            let maxX = Number.MIN_VALUE;
+            let maxY = Number.MIN_VALUE;
+            
+            rawCoordinates.forEach(coord => {
+                minX = Math.min(minX, coord.x);
+                minY = Math.min(minY, coord.y);
+                maxX = Math.max(maxX, coord.x);
+                maxY = Math.max(maxY, coord.y);
+            });
+            
+            const origWidth = maxX - minX;
+            const origHeight = maxY - minY;
+            
+            // Normalize coordinates to 0-1 range for adaptability
+            const brainShape = rawCoordinates.map(coord => {
+                return {
+                    x: (coord.x - minX) / origWidth,
+                    y: (coord.y - minY) / origHeight
+                };
+            });
+            
+            // Generate internal nodes for a denser brain network
+            const internalNodes = [];
+            for (let i = 0; i < 40; i++) {
+                // Pick three random points from the original outline
+                const idx1 = Math.floor(Math.random() * brainShape.length);
+                const idx2 = Math.floor(Math.random() * brainShape.length);
+                const idx3 = Math.floor(Math.random() * brainShape.length);
+                
+                // Create a random point inside the triangle formed by these three points
+                const r1 = Math.random();
+                const r2 = Math.random();
+                
+                // Ensure we stay within the triangle (barycentric coordinates)
+                let r1Adjusted = r1;
+                let r2Adjusted = r2;
+                if (r1 + r2 > 1) {
+                    r1Adjusted = 1 - r1;
+                    r2Adjusted = 1 - r2;
+                }
+                const r3 = 1 - r1Adjusted - r2Adjusted;
+                
+                const x = brainShape[idx1].x * r1Adjusted + brainShape[idx2].x * r2Adjusted + brainShape[idx3].x * r3;
+                const y = brainShape[idx1].y * r1Adjusted + brainShape[idx2].y * r2Adjusted + brainShape[idx3].y * r3;
+                
+                internalNodes.push({x, y});
+            }
+            
+            // Combine outline and internal nodes
+            const fullBrainShape = [...brainShape, ...internalNodes];
+            
+            // Function to transform particles into brain shape
+            function formBrainShape() {
+                // Don't do anything if there aren't enough particles
+                if (particles.array.length < fullBrainShape.length * 0.8) return;
+                
+                // Get canvas dimensions
+                const canvasWidth = pJS.canvas.w;
+                const canvasHeight = pJS.canvas.h;
+                
+                // Position brain on the right side of the header
+                const centerX = canvasWidth * 0.75; // Move to the right (75% of width)
+                const centerY = canvasHeight * 0.5; // Center vertically
+                const scale = Math.min(canvasWidth * 0.4, canvasHeight * 0.7); // Adjust scale to fit right side
+                
+                // Store original positions and velocities for all particles
+                for (let i = 0; i < particles.array.length; i++) {
+                    const p = particles.array[i];
+                    p.original_x = p.x;
+                    p.original_y = p.y;
+                    p.original_vx = p.vx;
+                    p.original_vy = p.vy;
+                    p.original_opacity = p.opacity.value;
+                    p.original_color = p.color.value;
+                    p.original_radius = p.radius;
+                }
+                
+                // Move particles to brain shape, keeping some in random positions for network effect
+                const particlesToUse = Math.min(fullBrainShape.length, Math.floor(particles.array.length * 0.8)); // Use 80%
+                const shuffledIndices = shuffleArray([...Array(particles.array.length).keys()]);
+                
+                for (let i = 0; i < particlesToUse; i++) {
+                    const particleIndex = shuffledIndices[i];
+                    
+                    // For outline nodes, use exact positions
+                    if (i < brainShape.length) {
+                        const targetX = centerX + (fullBrainShape[i].x - 0.5) * scale;
+                        const targetY = centerY + (fullBrainShape[i].y - 0.5) * scale;
+                        
+                        // Set brain target position
+                        particles.array[particleIndex].brain_target_x = targetX;
+                        particles.array[particleIndex].brain_target_y = targetY;
+                        particles.array[particleIndex].is_brain_node = true;
+                        particles.array[particleIndex].is_outline = true; // Mark as outline node
+                        
+                        // Make outline nodes larger and more visible
+                        particles.array[particleIndex].color.value = "#00EAFF"; // Bright cyan
+                        particles.array[particleIndex].radius = 4; // Larger for visibility
+                        particles.array[particleIndex].opacity.value = 1; // Full opacity
+                    } else {
+                        // For internal nodes, add some randomness
+                        const nodeIndex = i % fullBrainShape.length;
+                        const randomOffset = 0.05;
+                        const targetX = centerX + (fullBrainShape[nodeIndex].x - 0.5 + (Math.random() - 0.5) * randomOffset) * scale;
+                        const targetY = centerY + (fullBrainShape[nodeIndex].y - 0.5 + (Math.random() - 0.5) * randomOffset) * scale;
+                        
+                        particles.array[particleIndex].brain_target_x = targetX;
+                        particles.array[particleIndex].brain_target_y = targetY;
+                        particles.array[particleIndex].is_brain_node = true;
+                        
+                        // Make internal nodes slightly different
+                        particles.array[particleIndex].color.value = "#1E90FF"; // Royal blue
+                        particles.array[particleIndex].radius = 3; // Medium size
+                        particles.array[particleIndex].opacity.value = 0.8; // Good opacity
+                    }
+                    
+                    // Slow down movement but don't stop completely
+                    particles.array[particleIndex].vx *= 0.2;
+                    particles.array[particleIndex].vy *= 0.2;
+                }
+                
+                // Flag particles as moving to brain shape
+                pJS.particles.moving_to_brain = true;
+                pJS.particles.brain_formation_time = Date.now();
+                
+                // Start the animation
+                animateToBrainShape();
+                
+                // Set timeout to return to normal after 8 seconds
+                setTimeout(function() {
+                    returnToNormal();
+                }, 3000);
+            }
+            
+            // Fisher-Yates shuffle algorithm
+            function shuffleArray(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+                return array;
+            }
+            
+            // Animate particles to brain shape
+            function animateToBrainShape() {
+                if (!pJS.particles.moving_to_brain) return;
+                
+                let stillMoving = false;
+                
+                for (let i = 0; i < particles.array.length; i++) {
+                    const p = particles.array[i];
+                    
+                    // Only animate particles that have a brain target
+                    if (p.brain_target_x !== undefined && p.brain_target_y !== undefined) {
+                        // Calculate distance to target
+                        const dx = p.brain_target_x - p.x;
+                        const dy = p.brain_target_y - p.y;
+                        const distance = Math.sqrt(dx*dx + dy*dy);
+                        
+                        if (distance > 2) {
+                            // Move towards target (faster for quicker formation)
+                            p.x += dx * 0.1;
+                            p.y += dy * 0.1;
+                            stillMoving = true;
+                        } else {
+                            // If close enough, keep slight movement
+                            if (p.is_outline) {
+                                // Less movement for outline nodes (stay more in position)
+                                p.x = p.brain_target_x + (Math.random() - 0.5) * 1.5;
+                                p.y = p.brain_target_y + (Math.random() - 0.5) * 1.5;
+                            } else {
+                                // More movement for internal nodes
+                                p.x = p.brain_target_x + (Math.random() - 0.5) * 3;
+                                p.y = p.brain_target_y + (Math.random() - 0.5) * 3;
+                            }
+                        }
+                    }
+                }
+                
+                if (stillMoving) {
+                    requestAnimationFrame(animateToBrainShape);
+                }
+            }
+            
+            // Return particles to normal movement
+            function returnToNormal() {
+                if (!pJS.particles.moving_to_brain) return;
+                
+                pJS.particles.moving_to_brain = false;
+                
+                // Reset all particle properties gradually
+                for (let i = 0; i < particles.array.length; i++) {
+                    const p = particles.array[i];
+                    
+                    // Restore original colors and sizes
+                    if (p.original_color) {
+                        p.color.value = p.original_color;
+                    }
+                    
+                    if (p.original_radius) {
+                        p.radius = p.original_radius;
+                    }
+                    
+                    if (p.original_opacity) {
+                        p.opacity.value = p.original_opacity;
+                    }
+                    
+                    // Gradually restore original velocity
+                    p.vx = (p.original_vx || (Math.random() - 0.5)) * (Math.random() * 0.5 + 0.5);
+                    p.vy = (p.original_vy || (Math.random() - 0.5)) * (Math.random() * 0.5 + 0.5);
+                    
+                    // Add randomness to velocity for natural dispersion
+                    p.vx += (Math.random() - 0.5) * 2;
+                    p.vy += (Math.random() - 0.5) * 2;
+                    
+                    // Clear brain target properties
+                    delete p.brain_target_x;
+                    delete p.brain_target_y;
+                    delete p.is_brain_node;
+                    delete p.is_outline;
+                    delete p.original_x;
+                    delete p.original_y;
+                    delete p.original_vx;
+                    delete p.original_vy;
+                    delete p.original_color;
+                    delete p.original_radius;
+                    delete p.original_opacity;
+                }
+            }
+            
+            // Enhancement function to draw connecting lines between brain particles
+            function enhanceBrainLinks() {
+                if (!pJS.particles.moving_to_brain) return;
+                
+                // Get the canvas context
+                const ctx = pJS.canvas.ctx;
+                if (!ctx) return;
+                
+                // Find all brain outline particles
+                const outlineParticles = particles.array.filter(p => p.is_outline === true);
+                
+                // Draw connecting lines for the brain outline
+                ctx.strokeStyle = "#00EAFF"; // Bright cyan
+                ctx.lineWidth = 0.5;
+                ctx.globalAlpha = 0.4;
+                
+                ctx.beginPath();
+                
+                // Draw continuous line through outline points in order
+                for (let i = 0; i < outlineParticles.length; i++) {
+                    const p1 = outlineParticles[i];
+                    const p2 = outlineParticles[(i + 1) % outlineParticles.length];
+                    
+                    ctx.moveTo(p1.x, p1.y);
+                    ctx.lineTo(p2.x, p2.y);
+                }
+                
+                ctx.stroke();
+                ctx.globalAlpha = 1.0; // Reset alpha
+            }
+            
+            // Hook into the particles draw loop to apply enhancements
+            const originalDraw = pJS.fn.particlesDraw;
+            pJS.fn.particlesDraw = function() {
+                originalDraw.call(this);
+                
+                if (pJS.particles.moving_to_brain) {
+                    enhanceBrainLinks();
+                }
+            };
+            
+            // Trigger brain formation periodically
+            setInterval(formBrainShape, 20000);
+            
+            // Trigger once after initial delay
+            setTimeout(formBrainShape, 3000);
+            
+        }, 2000); // Increased wait time for particles.js to fully initialize
+    });
+    </script>
 </body>
 </html>
