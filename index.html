@@ -13,7 +13,7 @@
     <meta name="twitter:creator:id" content="@GaticaMarilyn"/>
     <meta name="twitter:title" content="Satellite Complexity in the Brain: CoBrain (CCS*2025)"/>
     <meta name="twitter:description" content="Overview, list of speakers, and schedule"/>
-    <meta name="twitter:image" content="cobrain4.png"/>
+    <!-- <meta name="twitter:image" content="cobrain4.png"/> -->
     <meta name="twitter:image:alt" content="Complexity in the Brain"/>
     <!-- end Twitter tags -->
 </head>
@@ -84,7 +84,7 @@
             <div class="speakers-grid">
                 <div class="speaker-card">
                     <div class="speaker-image">
-                        <img src="speaker1.jpg" alt="Petra Vertes">
+                        <img src="petra.jpeg" alt="Petra Vertes">
                     </div>
                     <div class="speaker-info">
                         <h3>Petra Vertes</h3>
@@ -95,7 +95,7 @@
                 
                 <div class="speaker-card">
                     <div class="speaker-image">
-                        <img src="speaker1.jpg" alt="Michele Nardin">
+                        <img src="michele.png" alt="Michele Nardin">
                     </div>
                     <div class="speaker-info">
                         <h3>Michele Nardin</h3>
@@ -106,7 +106,7 @@
                 
                 <div class="speaker-card">
                     <div class="speaker-image">
-                        <img src="speaker1.jpg" alt="Giulio Pergola">
+                        <img src="giulio.png" alt="Giulio Pergola">
                     </div>
                     <div class="speaker-info">
                         <h3>Giulio Pergola</h3>
@@ -117,7 +117,7 @@
                 
                 <div class="speaker-card">
                     <div class="speaker-image">
-                        <img src="speaker1.jpg" alt="Jaroslav Hlinka">
+                        <img src="jaroslav.jpg" alt="Jaroslav Hlinka">
                     </div>
                     <div class="speaker-info">
                         <h3>Jaroslav Hlinka</h3>
@@ -255,7 +255,7 @@
             <div class="organizers-grid">
                 <div class="organizer-card">
                     <div class="organizer-image">
-                        <img src="organizer1.jpg" alt="Marilyn Gatica">
+                        <img src="marilyn.png" alt="Marilyn Gatica">
                     </div>
                     <div class="organizer-info">
                         <h3>Marilyn Gatica</h3>
@@ -267,7 +267,7 @@
                 
                 <div class="organizer-card">
                     <div class="organizer-image">
-                        <img src="organizer1.jpg" alt="Nicola Pedreschi">
+                        <img src="nicola.png" alt="Nicola Pedreschi">
                     </div>
                     <div class="organizer-info">
                         <h3>Nicola Pedreschi</h3>
@@ -278,7 +278,7 @@
                 
                 <div class="organizer-card">
                     <div class="organizer-image">
-                        <img src="organizer1.jpg" alt="Samy Castro">
+                        <img src="samy.jpeg" alt="Samy Castro">
                     </div>
                     <div class="organizer-info">
                         <h3>Samy Castro</h3>
@@ -289,7 +289,7 @@
                 
                 <div class="organizer-card">
                     <div class="organizer-image">
-                        <img src="organizer1.jpg" alt="Jesseba Fernando">
+                        <img src="jesseba.jpg" alt="Jesseba Fernando">
                     </div>
                     <div class="organizer-info">
                         <h3>Jesseba Fernando</h3>
@@ -342,7 +342,7 @@
                         "random": true,
                         "anim": {
                             "enable": true,
-                            "speed": 0.5,
+                            "speed": 0.9,
                             "opacity_min": 0.8,
                             "sync": false
                         }
@@ -360,7 +360,7 @@
                     },
                     "move": {
                         "enable": true,
-                        "speed": 0.5,
+                        "speed": 0.9,
                         "direction": "none",
                         "random": true,
                         "straight": false,
@@ -733,8 +733,8 @@
                     }
                     
                     // Gradually restore original velocity
-                    p.vx = (p.original_vx || (Math.random() - 0.5)) * (Math.random() * 0.5 + 0.5);
-                    p.vy = (p.original_vy || (Math.random() - 0.5)) * (Math.random() * 0.5 + 0.5);
+                    p.vx = (p.original_vx || (Math.random() - 0.5)) * (Math.random() * 1.5 + 0.5);
+                    p.vy = (p.original_vy || (Math.random() - 0.5)) * (Math.random() * 1.5 + 0.5);
                     
                     // Add randomness to velocity for natural dispersion
                     p.vx += (Math.random() - 0.5) * 2;
@@ -797,7 +797,7 @@
             };
             
             // Trigger brain formation periodically
-            setInterval(formBrainShape, 20000);
+            setInterval(formBrainShape, 30000);
             
             // Trigger once after initial delay
             setTimeout(formBrainShape, 3000);
