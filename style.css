@@ -714,6 +714,6 @@ footer::after {
 
 /* Apply to all sections with an ID */
 section[id] {
-    padding-top: 20px; /* Reduced padding for less gradual scroll */
-    margin-top: -20px; /* Same value as padding-top */
+    padding-top: 60px; /* Adjust this value as needed */
+    margin-top: -60px; /* Same value as padding-top */
 }
