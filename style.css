@@ -240,7 +240,7 @@ section {
     background-color: white;
     border-radius: var(--border-radius);
     padding: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     box-shadow: var(--shadow);
     border-top: 3px solid var(--border-color);
     position: relative;
@@ -714,6 +714,13 @@ footer::after {
 
 /* Apply to all sections with an ID */
 section[id] {
-    padding-top: 60px; /* Adjust this value as needed */
-    margin-top: -60px; /* Same value as padding-top */
+    scroll-margin-top: 70px;
+    padding-top: 0px; /* Adjust this value as needed */
+    margin-top: -0px; /* Same value as padding-top */
 }
+
+/* Add this to create consistent spacing between all sections */
+section:last-child {
+    margin-bottom: 2rem; /* Ensure the last section has some space before the footer */
+}
+

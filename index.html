@@ -733,8 +733,8 @@
                     }
                     
                     // Gradually restore original velocity
-                    p.vx = (p.original_vx || (Math.random() - 0.5)) * (Math.random() * 1.5 + 0.5);
-                    p.vy = (p.original_vy || (Math.random() - 0.5)) * (Math.random() * 1.5 + 0.5);
+                    p.vx = (p.original_vx || (Math.random() - 0.5)) * (Math.random() * 0.5 + 0.3);
+                    p.vy = (p.original_vy || (Math.random() - 0.5)) * (Math.random() * 0.5 + 0.3);
                     
                     // Add randomness to velocity for natural dispersion
                     p.vx += (Math.random() - 0.5) * 2;
