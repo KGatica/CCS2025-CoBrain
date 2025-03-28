@@ -326,7 +326,7 @@ section::before {
 
 .speaker-card {
     flex: 0 1 calc(25% - 2rem);/* 4 in the same row, 33.333% for 25% */
-    min-width: 250px;
+    /* min-width: 250px; <-- removed this line */
     max-width: calc(25% - 2rem);/* 4 in the same row, 33.333% for 25% */
     background-color: white;
     border-radius: var(--border-radius);
