@@ -464,7 +464,7 @@ section::before {
 }
 
 .time-row td:first-child {
-    width: 120px;
+    width: 180px;
     font-weight: 600;
     color: var(--primary-color);
     border-right: 2px solid var(--border-color);
